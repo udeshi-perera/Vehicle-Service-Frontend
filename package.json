@@ -22,7 +22,11 @@
     "@angular/platform-browser-dynamic": "~11.2.7",
     "@angular/router": "~11.2.7",
     "angular-file-uploader": "^7.0.3",
+    "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
     "rxjs": "~6.6.0",
+    "socket.io-client": "^4.0.1",
+    "socketcluster-client": "^16.0.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
