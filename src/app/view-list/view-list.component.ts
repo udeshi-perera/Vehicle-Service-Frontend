@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Vehicle } from '../model/vehicle';
 import { ViewListService } from '../services/view-list.service';
 import { VehicleDetail } from '../VehicleDetail'
 
@@ -26,15 +27,30 @@ export class ViewListComponent implements OnInit {
 //   ELEMENT_DATA: VehicleDetail[]=[];
 //   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
 //  dataSource = this.ELEMENT_DATA;
+public vehicles: Vehicle[] = [];
+dataSource = new MatTableDataSource<Vehicle>();
 
-
+allVehicle:any;
   constructor(private service:ViewListService) { }
 
   ngOnInit(): void {
+    this.getAllVehicleData();
   }
 
   public viewVehicleDetail(){
+  
 
+  }
+
+  getAllVehicleData() {
+    console.log("vehicle")
+    this.service.getAllVehicle().then(data =>{
+     
+      this.vehicles = data;
+    }).catch( error =>{
+      console.log(error);
+      
+    });
   }
 
 }

@@ -3,12 +3,12 @@
         <mat-card class="dashboard-card">
             <mat-card-header>
                 <mat-icon>face</mat-icon>
-                <mat-card-title>CSV data file uploader</mat-card-title>
+                <mat-card-title>Upload your file</mat-card-title>
 
-                <mat-card-subtitle>Registration</mat-card-subtitle>
+                <mat-card-subtitle>Upload File</mat-card-subtitle>
                 <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
                     <div fxLayoutGap="20px">
-                        <button mat-raised-button (click)="submit()" color="primary" type="submit">Submit</button>
+                        <button mat-raised-button (click)="submit();notificationSend()" color="primary" type="submit">Submit</button>
                     </div>
 
                 </div>
@@ -25,9 +25,9 @@
 
                             <input type="file" #fileUpload id="fileUpload" multiple (change)="onFileChanged($event)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
                             <img src="../../assets/ic-upload-file.svg" alt="">
-                            <h3>Drag and drop file here</h3>
+                            <h3>Drag and drop file</h3>
                             <h3>or</h3>
-                            <label for="fileDropRef">Browse for file</label>
+                            <label for="fileDropRef">Browse</label>
                         </div>
                     </div>
                     <div fxFlex="60%" class="file-loader">

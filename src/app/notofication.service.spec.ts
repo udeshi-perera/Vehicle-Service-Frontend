@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ViewListService } from './view-list.service';
+import { NotoficationService } from './notofication.service';
 
-describe('ViewListService', () => {
-  let service: ViewListService;
+describe('NotoficationService', () => {
+  let service: NotoficationService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ViewListService);
+    service = TestBed.inject(NotoficationService);
   });
 
   it('should be created', () => {

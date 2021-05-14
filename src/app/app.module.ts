@@ -11,13 +11,19 @@ import { FileReadComponent } from './file-read/file-read.component'
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon'
 import { AngularFileUploaderModule } from "angular-file-uploader";
+import { VehicleTableComponent } from './vehicle-table/vehicle-table.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import {MatDialogModule} from '@angular/material/dialog';
+import { NotoficationService } from './notofication.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewListComponent,
-    FileReadComponent
-  ],
+    FileReadComponent,
+    VehicleTableComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,9 +32,12 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
     HttpClientModule,
     MatCardModule,
     MatIconModule,
-    AngularFileUploaderModule
+    AngularFileUploaderModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [NotoficationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
