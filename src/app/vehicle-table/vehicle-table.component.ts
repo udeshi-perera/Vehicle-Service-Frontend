@@ -69,6 +69,11 @@ export class VehicleTableComponent implements AfterViewInit,OnInit {
     this.service.deleteVehicle(id);
   }
 
+  exportFile(age:number){
+    console.log(age);
+    this.service.exportDataByAge(age);
+  }
+
   editVehicle(id){
     this.service.updateData(id);
     this.router.navigate(['/edit',id]);

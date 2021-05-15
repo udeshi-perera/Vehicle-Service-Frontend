@@ -1,3 +1,19 @@
+<br>
+<div class="row" style="align-items: center;">
+  <div id="custom-search-input" style="align-items: center;">
+                   <div class="input-group col-md-4" style="text-align: center">
+                       <input type="number" class="search-query form-control" #age placeholder="  Enter age of vehicle"  name="mobileNumber" style="align-items: center;" />
+                       <span class="input-group-btn">
+                           <button class="btn btn-danger" type="button" (click)="exportFile(age.value)"> 
+                               <span class=" glyphicon glyphicon-search"></span>
+                           </button>
+                       </span>
+                   </div>
+               </div>
+</div>
+<br>
+<br>
+
 <div class="mat-elevation-z8">
   <table mat-table class="full-width-table" matSort aria-label="Elements">
     <!-- Id Column -->

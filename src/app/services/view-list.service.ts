@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import request, { GraphQLClient } from 'graphql-request';
 import { BehaviorSubject } from 'rxjs';
-import { DELETE_VEHICLE, GET_ALL_VEHICLE, GET_VEHICLE_DETAIL, Vehicle } from '../model/vehicle';
+import { DELETE_VEHICLE, EXPORT_CSV_fILE, GET_ALL_VEHICLE, GET_VEHICLE_DETAIL, Vehicle } from '../model/vehicle';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,8 @@ export class ViewListService {
 
   client = new GraphQLClient('http://localhost:3000/graphql');
   endpoint: string = 'http://localhost:3000/graphql';
+
+  fileExportClient= new GraphQLClient('http://localhost:3001/graphql');
   constructor(private http:HttpClient) { }
 
   public viewTableData(){
@@ -58,6 +60,15 @@ async viewDataById(id:number){
     console.log(error);
     return error;
   });
+  return res;
+}
+
+async exportDataByAge(ageOfVehicle:number){
+  // console.log("file export");
+  // var age=parseInt(ageOfVehicle);
+  const res = await this.http.get(`http://localhost:3001/${ageOfVehicle}`).subscribe(data=>{
+    return data;
+  })
   return res;
 }
 

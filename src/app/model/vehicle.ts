@@ -80,4 +80,15 @@ query($id:Int!){
 }
 }
 `
+export const EXPORT_CSV_fILE = gql`
+query($ageOfVehicle:Int!) {
+  vehicleByAge(ageOfVehicle:$ageOfVehicle) {
+      carMake
+      carModel
+      email
+      lastName
+      firstName
+  }
+}
+`
 

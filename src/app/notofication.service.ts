@@ -13,9 +13,10 @@ export class NotoficationService implements OnInit {
 
 
   constructor() {
-
+    console.log('loaded');
     //subscribe to the server channel and listen for messages(notifications)
     (async () => {
+      
       let channel = this.socket.subscribe("channelName");
       //send data to the  server
       this.socket.transmit("channelName", "Hi Im a new client ");
@@ -23,7 +24,7 @@ export class NotoficationService implements OnInit {
       for await (let data of channel) {
         // ... Handle channel data.
         alert(data + " data received from server");
-        
+
       }
     })();
   }
