@@ -16,13 +16,20 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NotoficationService } from './notofication.service';
+import { RootNavComponent } from './root-nav/root-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewListComponent,
     FileReadComponent,
-    VehicleTableComponent
+    VehicleTableComponent,
+    RootNavComponent,
     ],
   imports: [
     BrowserModule,
@@ -35,9 +42,14 @@ import { NotoficationService } from './notofication.service';
     AngularFileUploaderModule,
     MatPaginatorModule,
     MatSortModule,
-    MatDialogModule
+    MatDialogModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule
   ],
-  providers: [NotoficationService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

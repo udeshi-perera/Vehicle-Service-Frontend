@@ -9,56 +9,57 @@
                 <fieldset>
                     <div class="form-group">
                         <label for="Name"><span class="req">* </span> First Name: </label>
-                        <input required type="text"  name="fname" id="fname"
-                            class="form-control phone" maxlength="28" value="{{vehicles.firstName}}"/>
+                        <input required type="text"  name="fname" id="fname" #firstName
+                            class="form-control phone" maxlength="28" value="{{vehicles.firstName}}" (change)="vehicles.firstName=firstName.value"/>
                     </div>
                     <div class="form-group">
                         <label for="firstname"><span class="req">* </span> Last Name: </label>
-                        <input class="form-control" type="text"  name="lname" id="txt" required
-                        value="{{vehicles.lastName}}"  />
+                        <input class="form-control" type="text"  name="lname" id="txt" required #lastName
+                        value="{{vehicles.lastName}}" (change)="vehicles.lastName=lastName.value" />
                         <div id="errFirst"></div>
                     </div>
                     <div class="form-group">
                         <label for="category"><span class="req">* </span> Email: </label>
-                        <input class="form-control" type="text"  name="email" id="txt" required
-                        value="{{vehicles.email}}"/>
+                        <input class="form-control" type="text"  name="email" id="txt" required #email
+                        value="{{vehicles.email}}" (change)="vehicles.email=email.value"/>
                     <div id="errFirst"></div>
                     </div>
                     <div class="form-group">
                         <label for="lastname"><span class="req">* </span> Car Make: </label>
-                        <input class="form-control" type="text"  name="carm" id="txt"
-                        value="{{vehicles.carMake}}" required />
+                        <input class="form-control" type="text"  name="carm" id="txt" #carMake
+                        value="{{vehicles.carMake}}" required  (change)="vehicles.carMake=carMake.value"/>
                         <div id="errLast"></div>
                     </div>
                     <div class="form-group">
                       <label for="lastname"><span class="req">* </span> Car Model: </label>
-                      <input class="form-control" type="text"  name="carmodel" id="txt"
-                      value="{{vehicles.carModel}}"  required />
+                      <input class="form-control" type="text"  name="carmodel" id="txt" #carModel
+                      value="{{vehicles.carModel}}" (change)="vehicles.carModel=carModel.value" required />
                       <div id="errLast"></div>
                   </div>
                   <div class="form-group">
                     <label for="lastname"><span class="req">* </span> VIN: </label>
-                    <input class="form-control" type="text"  name="vin" id="txt"
-                    value="{{vehicles.vinNumber}}"  required />
+                    <input class="form-control" type="text"  name="vin" id="txt" #vin
+                    value="{{vehicles.vinNumber}}" (change)="vehicles.vinNumber=vin.value" required />
                     <div id="errLast"></div>
                 </div>
                 <div class="form-group">
                   <label for="lastname"><span class="req">* </span> Manufactured Date: </label>
-                  <input class="form-control" type="text"  name="mdate" id="txt"
-                  value="{{vehicles.manufacturedDate}}"  required />
+                  <input class="form-control" type="text"  name="mdate" id="txt" #manufacturedDate
+                  value="{{vehicles.manufacturedDate}}"  (change)="vehicles.manufacturedDate=manufacturedDate.value"  required />
                   <div id="errLast"></div>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="lastname"><span class="req">* </span> Vehicle Age: </label>
                 <input class="form-control" type="text"  name="carm" id="txt"
                      required />
                 <div id="errLast"></div>
-            </div>
-                    <div class="form-group">
+            </div> -->
+                    <!-- <div class="form-group">
                         <button mat-raised-button color="primary" >Edit Vehicle</button>
-                    </div>
+                    </div> -->
                 </fieldset>
             </form>
+            <button (click)="editVehicle(vehicles)">edit</button>
         </div>
         <div class="row col-md-9 ">
             <div class="container text-right">     

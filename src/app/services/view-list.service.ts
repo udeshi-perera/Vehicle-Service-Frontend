@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import request, { GraphQLClient } from 'graphql-request';
 import { BehaviorSubject } from 'rxjs';
-import { DELETE_VEHICLE, EXPORT_CSV_fILE, GET_ALL_VEHICLE, GET_VEHICLE_DETAIL, Vehicle } from '../model/vehicle';
+import { DELETE_VEHICLE, EXPORT_CSV_fILE, GET_ALL_VEHICLE, GET_VEHICLE_DETAIL, UPDATE_VEHICLE, Vehicle } from '../model/vehicle';
 
 @Injectable({
   providedIn: 'root'
@@ -69,6 +69,21 @@ async exportDataByAge(ageOfVehicle:number){
   const res = await this.http.get(`http://localhost:3001/${ageOfVehicle}`).subscribe(data=>{
     return data;
   })
+  return res;
+}
+
+async updateVehicle(vehicle){
+  //console.log(vehicle);
+  const res = await this.client.request(UPDATE_VEHICLE,{"id":vehicle.id,"firstName":vehicle.firstName,
+  "lastName":vehicle.lastName,"email":vehicle.email,"carMake":vehicle.carMake,
+  "carModel":vehicle.carModel,"vinNumber":vehicle.vinNumber,"manufacturedDate":vehicle.manufacturedDate})
+  .then(data=>{
+return data;
+  }).catch(error=>{
+    console.log(error);
+    return error;
+  });
+  console.log(res);
   return res;
 }
 

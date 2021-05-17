@@ -10,6 +10,7 @@ import { ViewListService } from '../services/view-list.service';
 export class VehicleDataComponent implements OnInit {
 id:number;
 public vehicles: Vehicle;
+public vehicle1:Vehicle;
 
 
   constructor(private service:ViewListService) { }
@@ -34,5 +35,19 @@ public vehicles: Vehicle;
     console.log(this.vehicles.firstName)
   })
   }
+
+  editVehicle(vehicle){
+console.log(vehicle);
+this.service.updateVehicle(vehicle);
+  }
+
+
+sendTheNewValue(event){
+  
+//this.vehicle1.manufacturedDate = event.target.value;
+//this.vehicle1.id=this.vehicles.id;
+this.vehicle1.vinNumber=event.target.value;
+console.log(this.vehicle1)
+}
 
 }

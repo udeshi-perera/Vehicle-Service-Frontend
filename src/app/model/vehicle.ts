@@ -80,6 +80,36 @@ query($id:Int!){
 }
 }
 `
+
+export const UPDATE_VEHICLE = gql`
+mutation($id: Int!
+  $firstName: String
+  $lastName: String
+  $email: String
+  $carMake: String
+  $carModel: String
+ $vinNumber: String
+  $manufacturedDate: String)  {
+  updateVehicle(
+    updateVehicleData:  {
+      carMake: $carMake,carModel:$carModel,firstName:$firstName,email:$email, lastName: $lastName,
+      manufacturedDate:$manufacturedDate,
+      vinNumber:$vinNumber, id: $id}
+  )
+  
+{
+    		firstName
+        carModel
+        carMake
+        manufacturedDate
+        lastName
+        email
+        vinNumber
+  }
+}
+
+`
+
 export const EXPORT_CSV_fILE = gql`
 query($ageOfVehicle:Int!) {
   vehicleByAge(ageOfVehicle:$ageOfVehicle) {
