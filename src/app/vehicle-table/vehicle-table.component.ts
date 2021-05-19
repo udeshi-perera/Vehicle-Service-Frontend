@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -34,21 +34,24 @@ export class VehicleTableComponent implements AfterViewInit,OnInit {
   vnumber = '';
   pstartdate!: string;
 
+  public totalVehicleCount: number = 0;
+  public page:number=1;
 
   constructor(private service:ViewListService,private router: Router) {
     
   }
   ngOnInit(): void {
     console.log("ji");
-    this.getAllVehicleData();
+    this.getAllVehicleData(this.page);
   }
 
-  getAllVehicleData() {
-    this.service.getAllVehicle().then(data =>{
-    
-      this.vehicles = data;
-      console.log("hello"+ this.vehicles[3].carMake);
-      
+  getAllVehicleData(page:number) {
+    this.service.getAllVehicle(page).then(data =>{
+      //
+      console.log(page);
+      this.vehicles = data.vehicles;
+    // console.log(this.vehicles);
+      this.totalVehicleCount=data.totalCount;
       this.dataSource.data =this.vehicles;
       this.dataSource.connect();
       
@@ -79,4 +82,8 @@ export class VehicleTableComponent implements AfterViewInit,OnInit {
     this.router.navigate(['/edit',id]);
   }
 
+  handlePageEvent(event: PageEvent) {
+    console.log(event.pageIndex)
+    this.getAllVehicleData(event.pageIndex);
+  }
 }

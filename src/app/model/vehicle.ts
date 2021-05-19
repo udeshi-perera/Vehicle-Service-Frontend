@@ -44,18 +44,21 @@ export class Vehicle implements IVehicle {
 }
 
 export const GET_ALL_VEHICLE = gql`
-query {
-    getVehicles {
-            id
-            firstName
-            email
-            carModel
-            carMake
-            lastName
-            manufacturedDate
-            vinNumber
-    }
+query($page:Float!) {
+  getVehicles(page:$page) {
+    		vehicles{
+          	id
+          firstName
+          email
+          carModel
+          carMake
+          lastName
+          manufacturedDate
+          vinNumber
+        }
+    totalCount
   }
+}
 `;
 
 export const DELETE_VEHICLE = gql`
@@ -121,4 +124,18 @@ query($ageOfVehicle:Int!) {
   }
 }
 `
-
+export const SEARCH_VEHICLE_BY_MODEL = gql`
+query($model:String!){
+  searchVehicles( model:  $model) {
+      ageOfVehicle
+      carMake
+      carModel
+      email
+      firstName
+      id
+      lastName
+      manufacturedDate
+      vinNumber
+  }
+}
+`

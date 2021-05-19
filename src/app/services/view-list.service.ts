@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import request, { GraphQLClient } from 'graphql-request';
 import { BehaviorSubject } from 'rxjs';
+import { PaginateVehicle } from '../model/paginate-vehicle';
 import { DELETE_VEHICLE, EXPORT_CSV_fILE, GET_ALL_VEHICLE, GET_VEHICLE_DETAIL, UPDATE_VEHICLE, Vehicle } from '../model/vehicle';
 
 @Injectable({
@@ -27,9 +28,10 @@ export class ViewListService {
     this.content.next(text);
   }
 
-  async getAllVehicle() :Promise<Vehicle[]> {
+  async getAllVehicle(page:number) :Promise<PaginateVehicle> {
    
-    const res = await this.client.request(GET_ALL_VEHICLE).then(data => {
+    const res = await this.client.request(GET_ALL_VEHICLE,{"page":page}).then(data => {
+      console.log(data.getVehicles);
       return data.getVehicles;
     }).catch(error =>{
       console.log(error);

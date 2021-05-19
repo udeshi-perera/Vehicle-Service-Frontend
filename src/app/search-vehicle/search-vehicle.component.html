@@ -1,0 +1,44 @@
+<html>
+    <body>
+        <br>
+        <div class="row" style="align-items: center;">
+            <div id="custom-search-input" style="align-items: center;">
+                             <div class="input-group col-md-4" style="text-align: center">
+                                 <input type="text" #model class="search-query form-control" #age placeholder="  Enter first letters of vehicle model"  name="mobileNumber" style="align-items: center;" />
+                                 <span class="input-group-btn">
+                                     <button class="btn btn-danger" type="button" (click)="searchVehicle(model.value)"> 
+                                         <span class=" glyphicon glyphicon-search"></span>
+                                     </button>
+                                 </span>
+                             </div>
+                         </div>
+          </div>
+          <br>
+          <table *ngIf="vehicles.length">
+              <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Car Make</th>
+                    <th>Car Model</th>
+                    <th>VIN Number</th>
+                    <th>Manu. Date</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let vehicle of vehicles">
+                      <td>{{vehicle.id}}</td>
+                      <td>{{vehicle.firstName}}</td>
+                      <td>{{vehicle.lastName}}</td>
+                      <td>{{vehicle.email}}</td>
+                      <td>{{vehicle.carMake}}</td>
+                      <td>{{vehicle.carModel}}</td>
+                      <td>{{vehicle.vinNumber}}</td>
+                      <td>{{vehicle.manufacturedDate}}</td>
+                  </tr>
+              </tbody>
+          </table>
+    </body>
+</html>

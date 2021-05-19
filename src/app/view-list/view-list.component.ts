@@ -29,12 +29,13 @@ export class ViewListComponent implements OnInit {
 //  dataSource = this.ELEMENT_DATA;
 public vehicles: Vehicle[] = [];
 dataSource = new MatTableDataSource<Vehicle>();
+public page:number=0;
 
 allVehicle:any;
   constructor(private service:ViewListService) { }
 
   ngOnInit(): void {
-    this.getAllVehicleData();
+    this.getAllVehicleData(this.page);
   }
 
   public viewVehicleDetail(){
@@ -42,11 +43,11 @@ allVehicle:any;
 
   }
 
-  getAllVehicleData() {
+  getAllVehicleData(page:number) {
     console.log("vehicle")
-    this.service.getAllVehicle().then(data =>{
+    this.service.getAllVehicle(page).then(data =>{
      
-      this.vehicles = data;
+      this.vehicles = data.vehicles;
     }).catch( error =>{
       console.log(error);
       

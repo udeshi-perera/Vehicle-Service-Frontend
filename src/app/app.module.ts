@@ -22,6 +22,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { SearchVehicleComponent } from './search-vehicle/search-vehicle.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatListModule } from '@angular/material/list';
     FileReadComponent,
     VehicleTableComponent,
     RootNavComponent,
+    SearchVehicleComponent,
     ],
   imports: [
     BrowserModule,
